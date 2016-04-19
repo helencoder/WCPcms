@@ -16,16 +16,8 @@ class DisplayController extends CommonController
         //存储访问用户记录（访问人员记录、时间、IP等）
         $res = save_browse_user_records();
 
-        //set error handler
 
 
-        //trigger error
-        echo($test);
-        /*$test=2;
-        if ($test>1)
-        {
-            trigger_error("Something went wrong , but Don't worry!",E_USER_WARNING);
-        }*/
     }
 
 
