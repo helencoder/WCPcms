@@ -123,3 +123,29 @@ function customError($error_level, $error_message, $error_file, $error_line, $er
         error_log($errmsg, 3, $filename);
     }
 }
+
+/*
+ * 缓存函数
+ * @param $type 是否缓存，默认缓存$type=1，其他参数为不缓存
+ * @param $offset 默认缓存时间一小时
+ *
+ * */
+function cache($type = 1, $offset = 86400)
+{
+    switch ($type) {
+        case '1':
+            //浏览器缓存文件一个月（过期时间得用gmdate来设置，而不是date）
+            header("Cache-Control: public");
+            header("Pragma: cache");
+            //$offset = 30*60*60*24; // cache 1 month
+            $ExpStr = "Expires: " . gmdate("D, d M Y H:i:s", time() + $offset) . " GMT";
+            header($ExpStr);
+            break;
+        default :
+            //不设置缓存
+            header("Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0"); // HTTP/1.1
+            header("Expires: Sat, 26 Jul 1997 05:00:00 GMT"); // Date in the past
+            header("Pragma: no-cache"); // Date in the past
+            break;
+    }
+}
