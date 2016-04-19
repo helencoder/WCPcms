@@ -26,14 +26,18 @@ class CommonController extends Controller
      * */
     protected function _initialize()
     {
-        //设定项目基础路径等配置信息
-        ini_set("include_path", "D:wamp/www/WCPcms");
-        $root = $_SERVER['DOCUMENT_ROOT'];
-        $project_path = $root . 'WCPcms/';
-        $this->assign('root', $root);
-        $this->assign('project_path', $project_path);
         //设定项目编码
         header('Content-type: text/html; charset=utf-8');
+        //设定项目基础路径等配置信息
+        $document_root = $_SERVER['DOCUMENT_ROOT'];
+        $include_path = $document_root . 'WCPcms';
+        ini_set("include_path", $include_path);
+        $root = $_SERVER['DOCUMENT_ROOT'];
+        $project_path = $root . 'WCPcms';
+        $this->assign('root', $document_root);
+        $this->assign('project_path', $project_path);
+        //设置中国时区
+        date_default_timezone_set('PRC');
 
     }
 }
