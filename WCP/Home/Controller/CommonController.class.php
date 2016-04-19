@@ -9,7 +9,6 @@ use Think\Controller;
 
 class CommonController extends Controller
 {
-    //
     /*
      * 空操作默认为登陆
      * 假设在前端，则跳转到网站主页面
@@ -17,7 +16,7 @@ class CommonController extends Controller
      * */
     public function _empty()
     {
-        redirect(U('Index/Display'), 0, '进入网站中');
+        redirect(U('Index/Display/main'), 0, '进入网站中');
     }
 
     /*
