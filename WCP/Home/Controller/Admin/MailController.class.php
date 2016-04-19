@@ -1,0 +1,14 @@
+<?php
+/**
+ * Author: helen
+ * CreateTime: 2016/4/19 23:22
+ * description: ÍøÕ¾ÓÊÏä¿ØÖÆÀà--ÕËºÅ¼¤»î£¬ÃÜÂëÕÒ»ØµÈ
+ */
+namespace Home\Controller\Admin;
+
+use Home\Controller\CommonController;
+
+class MailController extends CommonController
+{
+    
+}
