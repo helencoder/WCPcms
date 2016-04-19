@@ -31,6 +31,9 @@ class CommonController extends Controller
 
         //判断是否登录
 
+        //设定错误处理函数
+        set_error_handler("customError", E_ALL);
+
 
 
     }
