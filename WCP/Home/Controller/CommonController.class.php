@@ -26,6 +26,20 @@ class CommonController extends Controller
      * */
     protected function _initialize()
     {
+        //引入公共配置项
+        $this->config();
+
+        //判断是否登录
+
+
+
+    }
+
+    /*
+     * 公共配置项
+     * */
+    protected function config()
+    {
         //设定项目编码
         header('Content-type: text/html; charset=utf-8');
         //设定项目基础路径等配置信息
@@ -38,6 +52,5 @@ class CommonController extends Controller
         $this->assign('project_path', $project_path);
         //设置中国时区
         date_default_timezone_set('PRC');
-
     }
 }
