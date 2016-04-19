@@ -4,9 +4,9 @@
  * CreateTime: 2016/4/19 10:34
  * description: 网站用户控制类
  */
-namespace WCP\Controller\Index;
+namespace Home\Controller\Index;
 
-use WCP\Controller\CommonController;
+use Home\Controller\CommonController;
 
 class UserController extends CommonController
 {

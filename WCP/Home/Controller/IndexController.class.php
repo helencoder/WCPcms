@@ -1,6 +1,5 @@
 <?php
 namespace Home\Controller;
-
 use Think\Controller;
 
 /*
@@ -16,6 +15,6 @@ class IndexController extends Controller
         //访问人员记录、时间、IP等
 
         //页面重定向
-        //redirect(U('Index/Display'),0,'信息');
+        redirect(U('Home/Index/Display/main'), 0, '信息');
     }
 }

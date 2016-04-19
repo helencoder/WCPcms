@@ -4,8 +4,7 @@
  * CreateTime: 2016/4/19 9:58
  * description: ÍøÕ¾¹«¹²ÅäÖÃÀà
  */
-namespace WCP\Controller;
-
+namespace Home\Controller;
 use Think\Controller;
 
 class CommonController extends Controller
