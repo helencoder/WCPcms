@@ -23,7 +23,11 @@ function save_browse_user_records()
     }
     if (strpos($_SERVER['HTTP_COOKIE'], 'PHPSESSID') !== false) {
         $str = strstr($_SERVER['HTTP_COOKIE'], 'PHPSESSID');
-        $data['phpsessid'] = substr($str, 10);
+        if (strpos($str, ';')) {
+            $data['phpsessid'] = substr($str, 10, strpos($str, ';') - 10);
+        } else {
+            $data['phpsessid'] = substr($str, 10);
+        }
     } else {
         $data['phpsessid'] = '';
     }
