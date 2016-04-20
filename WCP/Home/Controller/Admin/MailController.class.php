@@ -10,5 +10,26 @@ use Home\Controller\CommonController;
 
 class MailController extends CommonController
 {
-    
+    //ÕËºÅ¼¤»î
+    public function activate()
+    {
+        $nickname = '';
+        $this->assign('nickname', $nickname);
+        $url = getCurrentUrl();
+        dump($url);
+        $code = getRandomCode(32);
+        dump($code);
+        dump(mt_rand(1, 10));
+
+        $email = '';
+        $this->display();
+    }
+
+    //Íü¼ÇÃÜÂë
+    public function forgotPassword()
+    {
+
+    }
+    //ÃÜÂëÖØÖÃ
+
 }
