@@ -202,3 +202,18 @@ function request($url, $data = null)
     $res = json_decode($output);
     return ($res);   //返回json数据
 }
+
+/*
+ * 随机数生成函数
+ * 可以指定生成随机数的长度,默认16位
+ * */
+function getRandomCode($length = 16)
+{
+    $chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    $code = '';
+    for ($i = 0; $i < $length; $i++) {
+        $tip = mt_rand(0, 61);
+        $code .= $chars[$tip];
+    }
+    return $code;
+}
