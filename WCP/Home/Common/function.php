@@ -153,3 +153,13 @@ function cache($type = 1, $offset = 86400)
             break;
     }
 }
+
+/*
+ * 获取当前页面的完整url
+ * */
+function getCurrentUrl()
+{
+    //当前页面的url
+    $url = $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+    return $url;
+}
