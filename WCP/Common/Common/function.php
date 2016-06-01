@@ -1,7 +1,4 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: helen
- * Date: 16-6-1
- * Time: 下午8:44
+ * 公共函数库
  */
