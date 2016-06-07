@@ -2,9 +2,9 @@
 namespace Home\Controller;
 use Think\Controller;
 
-/*
+/*×
  * 项目入口控制器
- * */
+ */
 
 class IndexController extends Controller
 {
