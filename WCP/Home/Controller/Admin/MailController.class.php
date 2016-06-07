@@ -2,7 +2,7 @@
 /**
  * Author: helen
  * CreateTime: 2016/4/19 23:22
- * description: ÍøÕ¾ÓÊÏä¿ØÖÆÀà--ÕËºÅ¼¤»î£¬ÃÜÂëÕÒ»ØµÈ
+ * description: é‚®ç®±æ§åˆ¶å™¨
  */
 namespace Home\Controller\Admin;
 
@@ -10,7 +10,7 @@ use Home\Controller\CommonController;
 
 class MailController extends CommonController
 {
-    //ÕËºÅ¼¤»î
+    //ï¿½ËºÅ¼ï¿½ï¿½ï¿½
     public function activate()
     {
         $nickname = '';
@@ -25,11 +25,11 @@ class MailController extends CommonController
         $this->display();
     }
 
-    //Íü¼ÇÃÜÂë
+    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     public function forgotPassword()
     {
 
     }
-    //ÃÜÂëÖØÖÃ
+    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 }
