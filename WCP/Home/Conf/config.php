@@ -4,6 +4,12 @@ return array(
     //加载其他配置文件
     'LOAD_EXT_CONFIG' => 'db',
 
+    // 设置禁止访问的模块列表
+    'MODULE_DENY_LIST'      =>  array('Common','Runtime'),
+
+    // 设置可访问目录
+    'MODULE_ALLOW_LIST'    =>    array('Admin'),
+
     /* 模板相关配置 (路径)*/
     'TMPL_PARSE_STRING' => array(
 
