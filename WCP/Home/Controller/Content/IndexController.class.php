@@ -2,7 +2,7 @@
 /**
  * Author: helen
  * CreateTime: 2016/4/19 10:41
- * description: ÍøÕ¾ºóÌ¨--ÄÚÈİ¹ÜÀíÏµÍ³
+ * description: å¹³å°å†…å®¹æ§åˆ¶å™¨
  */
 namespace Home\Controller\Content;
 
