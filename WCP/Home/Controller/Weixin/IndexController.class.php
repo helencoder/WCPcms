@@ -2,7 +2,7 @@
 /**
  * Author: helen
  * CreateTime: 2016/4/19 10:41
- * description: ÍøÕ¾ºóÌ¨--Î¢ĞÅ¹ÜÀíÏµÍ³
+ * description: å¾®ä¿¡åŸºæœ¬ä¿¡æ¯æ§åˆ¶å™¨
  */
 namespace Home\Controller\Weixin;
 
