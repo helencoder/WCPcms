@@ -14,8 +14,9 @@ class DisplayController extends CommonController
     public function main()
     {
         //存储访问用户记录（访问人员记录、时间、IP等）
-        $res = save_browse_user_records();
+        //$res = save_browse_user_records();
 
+        $this->display();
 
 
     }
