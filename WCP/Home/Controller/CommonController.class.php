@@ -2,50 +2,45 @@
 /**
  * Author: helen
  * CreateTime: 2016/4/19 9:58
- * description: ÍøÕ¾¹«¹²ÅäÖÃÀà
+ * description: ï¿½ï¿½Õ¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
  */
 namespace Home\Controller;
 use Think\Controller;
 
 class CommonController extends Controller
 {
-    /*
-     * ¿Õ²Ù×÷Ä¬ÈÏÎªµÇÂ½
-     * ¼ÙÉèÔÚÇ°¶Ë£¬ÔòÌø×ªµ½ÍøÕ¾Ö÷Ò³Ãæ
-     * ¼ÙÉèÔÚºóÌ¨£¬ÔòÌø×ªµ½ºóÌ¨Ö÷Ò³Ãæ£¨Í¨¹ıÅĞ¶ÏÊÇ·ñ´øÓĞcookieĞÅÏ¢£©
-     * */
+    /**
+     * ç©ºæ–¹æ³•æ“ä½œ
+     * ç©ºæ“ä½œé»˜è®¤è·³è½¬åˆ°ç½‘ç«™ä¸»å±•ç¤ºç•Œé¢
+     */
     public function _empty()
     {
-        redirect(U('Index/Display/main'), 0, '½øÈëÍøÕ¾ÖĞ');
+        redirect(U('Index/Display/main'), 0);
     }
 
-    /*
-     * ¿ª·¢Õß¹«¹²ÅäÖÃ
-     * Ç°¶ËÕ¹Ê¾Â·¾¶¿ØÖÆ
-     * ºóÌ¨µÇÂ½ºó¼ì²âÓÃ»§ÊÇ·ñÒÑ¾­µÇÂ½£¬ËæÊ±¼ì²âÆäcookieĞÅÏ¢
-     * */
+    /**
+     * åˆå§‹åŒ–æ–¹æ³•
+     * æ§åˆ¶å™¨çš„åŸºç¡€æ–¹æ³•
+     * æ·»åŠ åŸºæœ¬é…ç½®
+     */
     protected function _initialize()
     {
-        //ÒıÈë¹«¹²ÅäÖÃÏî
+        //åŸºæœ¬é…ç½®æ–¹æ³•
         $this->config();
 
-        //ÅĞ¶ÏÊÇ·ñµÇÂ¼
-
-        //Éè¶¨´íÎó´¦Àíº¯Êı
+        //é”™è¯¯æ§åˆ¶å™¨
         set_error_handler("customError", E_ALL);
-
-
 
     }
 
-    /*
-     * ¹«¹²ÅäÖÃÏî
-     * */
+    /**
+     * åŸºç¡€é…ç½®
+     */
     protected function config()
     {
-        //Éè¶¨ÏîÄ¿±àÂë
+        //é¡µé¢ç¼–ç 
         header('Content-type: text/html; charset=utf-8');
-        //Éè¶¨ÏîÄ¿»ù´¡Â·¾¶µÈÅäÖÃĞÅÏ¢
+        //ç½‘ç«™è·¯å¾„é…ç½®
         $document_root = $_SERVER['DOCUMENT_ROOT'];
         $include_path = $document_root . 'WCPcms';
         ini_set("include_path", $include_path);
@@ -53,7 +48,7 @@ class CommonController extends Controller
         $project_path = $root . 'WCPcms';
         $this->assign('root', $document_root);
         $this->assign('project_path', $project_path);
-        //ÉèÖÃÖĞ¹úÊ±Çø
+        //æ—¶åŒºè®¾ç½®
         date_default_timezone_set('PRC');
     }
 }
