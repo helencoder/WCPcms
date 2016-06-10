@@ -18,7 +18,6 @@ class DisplayController extends CommonController
 
         $this->display();
 
-
     }
 
 
