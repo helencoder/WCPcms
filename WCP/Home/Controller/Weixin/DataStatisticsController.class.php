@@ -31,6 +31,6 @@ class DataStatisticsController extends CommonController
     // 接口分析数据接口
     protected function apiStatisticsDataApi()
     {
-        
+
     }
 }
