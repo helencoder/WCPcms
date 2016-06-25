@@ -6,9 +6,50 @@
     <script src="__Ext__/JQuery/jquery-2.2.0.min.js"></script>
     <script src="__Ext__/Highcharts/js/highcharts.js"></script>
     <script src="__Ext__/Highcharts/js/modules/exporting.js"></script>
-    <script src="__Ext__/Highcharts/js/themes/gray.js"></script>
+    <script src="__Ext__/Highcharts/js/modules/data.js"></script>
+    <script src="__Ext__/Highcharts/js/themes/skies.js"></script>
+    <script>
+        $(function () {
+            $('#container').highcharts({
+                chart: {
+                    type: 'column',
+                    style : {
+                        //fontFamily:"",
+                        fontSize:'16px',
+                        fontWeight:'bold',
+                        color:'#006cee'
+                    }
+                },
+                title: {
+                    text: 'My first Highcharts chart'
+                },
+                subtitle: {
+                    text: '我是副标题'
+                },
+                xAxis: {
+                    title:{
+                        text:'x轴标题'
+                    },
+                    categories: ['my', 'first', 'chart']
+                },
+                yAxis: {
+                    title: {
+                        text: 'y轴标题'
+                    }
+                },
+                series: [{
+                    name: 'Jane',
+                    data: [1, 0, 4]
+                }, {
+                    name: 'John',
+                    data: [5, 7, 3]
+                }]
+            });
+        });
+    </script>
 </head>
 <body>
     <h1>网站主界面</h1>
+    <div id="container" style="min-width:400px;height:400px;"></div>
 </body>
 </html>
