@@ -105,7 +105,7 @@ function customError($error_level, $error_message, $error_file, $error_line, $er
     $time = date('Y-m-d H:i:s', time());
     $errmsg = $time . " <b>Error:</b> [$error_level] $error_message<br />" . "error_file:$error_file" . "($error_line)。\r\n\r\n";
     $date = date('Y-m-d', time());
-    $root = $_SERVER['DOCUMENT_ROOT'];
+    $root = dirname($_SERVER['DOCUMENT_ROOT']);     //获取website的上一级目录
     $filename = $root . '/Log/' . "$date" . '.log';
     $dir = $root . '/WCPcms/Log';
     //用户错误信息记录表记录
