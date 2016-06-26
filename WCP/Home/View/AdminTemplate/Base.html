@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <include file="AdminTemplate/Title" />
+
+    <include file="AdminTemplate/Meta" />
+
+    <include file="AdminTemplate/Favicon" />
+
+    <include file="AdminTemplate/BasicStyle" />
+
+    <block name="Style"></block>
+
+</head>
+
+<body>
+
+    <include file="AdminTemplate/Header" />
+
+    <div class="container-fluid">
+        <div class="row">
+
+            <include file="AdminTemplate/Sidebar" />
+
+            <block name="Content"></block>
+
+        </div>
+    </div>
+
+
+
+    <div class="container">
+
+        <block name="InContainer"></block>
+
+    </div>
+
+    <block name="OutContent"></block>
+
+    <include file="AdminTemplate/Footer" />
+
+    <include file="AdminTemplate/BasicScript" />
+
+    <block name="Script"></block>
+
+</body>
+
+</html>
