@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <include file="IndexTemplate/Title" />
+
+    <include file="IndexTemplate/Meta" />
+
+    <include file="IndexTemplate/Favicon" />
+
+    <include file="IndexTemplate/BasicStyle" />
+
+    <block name="Style"></block>
+
+</head>
+
+<body>
+
+    <include file="IndexTemplate/Header" />
+
+    <div class="container">
+
+        <block name="InContainer"></block>
+
+    </div>
+
+    <block name="Content"></block>
+
+    <include file="IndexTemplate/Footer" />
+
+    <include file="IndexTemplate/BasicScript" />
+
+    <block name="Script"></block>
+
+</body>
+
+</html>
