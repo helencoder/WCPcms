@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>UEditor Demo</title>
+</head>
+<body>
+
+    <div id="content">
+        <p>dsfsdF</p>
+        <p>sdsdf</p>
+    </div>
+
+    <!-- 加载编辑器的容器(传入指定的id即可) -->
+    <div id="ueditor_container" style="height:100px; width: 400px "></div>
+
+    <script id="container" name="content" type="text/plain">
+            这里写你的初始化内容
+    </script>
+    <!-- 配置文件 -->
+    <script type="text/javascript" src="__Ext__/UEditor/ueditor.config.js"></script>
+    <!-- 编辑器源码文件 -->
+    <script type="text/javascript" src="__Ext__/UEditor/ueditor.all.js"></script>
+    <!--uparse内容展示-->
+    <script type="text/javascript" src="__Ext__/UEditor/ueditor.parse.js"></script>
+    <!-- 实例化编辑器 -->
+    <script type="text/javascript">
+        // 读取配置项可以通过getOpt方法读取  var lang = ue.getOpt('lang'); //默认返回：zh-cn
+        var ue = UE.getEditor('ueditor_container', {
+            autoHeight: false,
+            toolbars: [
+                [
+                    'anchor', 'undo', 'redo', '|', 'bold', 'italic', 'underline', 'fontborder', 'horizontal', 'formatmatch',
+                    'removeformat', '|', 'justifyleft', 'justifyright', 'justifycenter', 'justifyjustify', 'forecolor',
+                    'backcolor', 'fullscreen', 'pagebreak', '|', 'imagenone', 'imageleft', 'imageright', 'imagecenter',
+                    'lineheight', 'customstyle', 'autotypeset', 'touppercase', 'tolowercase', 'background', 'template'
+                ],
+                [
+                    'source', 'pasteplain', 'selectall', 'preview', 'time', 'date', '|', 'simpleupload', 'insertimage',
+                    'link', 'unlink', 'emotion', 'spechars', 'attachment', 'searchreplace', 'map'
+                ]
+            ]
+        });
+
+        //对编辑器的操作最好在编辑器ready之后再做
+        //通过 getContent 和 setContent 方法可以设置和读取编辑器的内容
+        ue.ready(function() {
+            //设置编辑器的内容
+            ue.setContent('hello');
+            //获取html内容，返回: <p>hello</p>
+            var html = ue.getContent();
+            //获取纯文本内容，返回: hello
+            var txt = ue.getContentTxt();
+        });
+
+        uParse('.content', {
+            rootPath: '__Ext/UEditor/'
+        })
+    </script>
+</body>
+</html>
