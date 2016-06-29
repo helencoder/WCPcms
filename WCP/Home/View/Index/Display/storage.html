@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML5 LocalStorage</title>
+</head>
+<body>
+
+
+    <script type="text/javascript">
+        // 验证是否支持 HTML5 LocalStorage
+        if(window.localStorage){
+            //alert('This browser supports localStorage');
+            var localStorage = window.localStorage;
+
+            // 数据的设置 推荐使用setItem()
+            localStorage.a = 3;//设置a为"3"
+            localStorage["a"] = "sfsf";//设置a为"sfsf"，覆盖上面的值
+            localStorage.setItem("b","isaac");//设置b为"isaac"
+            // 数据的获取 推荐使用getItem()
+            var a1 = localStorage["a"];//获取a的值
+            var a2 = localStorage.a;//获取a的值
+            var b = localStorage.getItem("b");//获取b的值
+            // 数据的清除 removeItem()
+            // 如果希望一次性清除所有的键值对，可以使用clear()
+            localStorage.removeItem("c");//清除c的值
+
+            // HTML5还提供了一个key()方法，可以在不知道有哪些键值的时候使用
+            //var storage = window.localStorage;
+            function showStorage(){
+                for(var i=0;i<localStorage.length;i++){
+                    //key(i)获得相应的键，再用getItem()方法获得对应的值
+                    document.write(localStorage.key(i)+ " : " + localStorage.getItem(localStorage.key(i)) + "<br>");
+                }
+            }
+
+            // TML5的本地存储，还提供了一个storage事件，可以对键值对的改变进行监听
+            if(window.addEventListener){
+                window.addEventListener("storage",handle_storage,false);
+            }else if(window.attachEvent){
+                window.attachEvent("onstorage",handle_storage);
+            }
+            function handle_storage(e){
+                if(!e){e=window.event;}
+                //showStorage();
+            }
+
+        }else{
+            alert('This browser does NOT support localStorage');
+        }
+    </script>
+
+    <script type="text/javascript">
+        // sessionStorage
+        /**
+         *  sessionStorage.getItem(key):获取指定key本地存储的值
+         *  sessionStorage.setItem(key,value)：将value存储到key字段
+         *  sessionStorage.removeItem(key):删除指定key本地存储的值
+         *  sessionStorage.length是sessionStorage的项目数
+         */
+        // sessionStorage 和 localStorage 就一个不同的地方， sessionStorage数据的存储仅特定于某个会话中，
+        // 也就是说数据只保持到浏览器关闭，当浏览器关闭后重新打开这个页面时， 之前的存储已经被清除。
+        // 而 localStorage 是一个持久化的存储，它并不局限于会话。
+
+        var sessionStorage = window.sessionStorage;
+        sessionStorage.setItem('helen', 'huihui');
+        alert(sessionStorage.getItem('helen'));
+    </script>
+
+</body>
+</html>
