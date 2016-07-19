@@ -1,8 +1,0 @@
-hello ubuntu
-hello helen
-hello ssh
-hello phpstorm
-hello tomorrow
-
-
-
