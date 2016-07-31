@@ -254,3 +254,15 @@ function verifyArgs()
 
     return $args;
 }
+
+/**
+ * 避免页面缓存
+ */
+function no_cache()
+{
+    $gmt_time = gmdate ("l d F Y H:i:s")." GMT";
+    header("Last-Modified: " . $gmt_time);
+    header("Expires: Sunday 31 July 2016 02:45:27 GMT");
+    header("Pragma: no-cache");
+    header("Cache-Control: no-cache");
+}
