@@ -50,5 +50,8 @@ class CommonController extends Controller
         $this->assign('project_path', $project_path);
         //时区设置
         date_default_timezone_set('PRC');
+        //页面说明项配置
+        $this->assign('description', 'WCPcms微信公众平台管理系统');
+        $this->assign('author', 'helen zheng');
     }
 }
