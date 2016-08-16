@@ -1,0 +1,140 @@
+/* WCPcms产品模块(数据模型) */
+{
+  /*模块分类*/
+  "module_type": {
+    "content": {
+      "name": "内容管理",
+      "desc": "内容管理，基于微信公众平台，提供相较于原生平台更好的用户体验以及数据回馈，模块主要包含文案管理、自定义菜单管理、消息管理等基本功能"
+    },
+    "service": {
+      "name": "服务管理",
+      "desc": "服务管理，提供微信公众平台使用者为关注用户提供生活便利服务的快捷通道，服务、新闻等一键添加，一键试用。"
+    },
+    "data": {
+      "name": "数据管理",
+      "desc": "数据管理，提供基于微信公众平台自身数据分析结果以外，定制化的数据体验。对于平台文案数据发布，有指定的数据追踪，社群分析等功能，并提供可视化体验。"
+    }
+  },
+  /* 模块分类显示顺序 */
+  "module_type_sequence": [
+    "content", "service", "data"
+  ],
+  /* 模块 */
+  "module": {
+    "article": {
+      "name": "文案管理",
+      "type": "content",
+      "desc": "文案管理，基于微信公众平台第三方开发的形式，提供相较于原生平台更好的发布体验以及数据回馈，模块主要包含文案创建、文案组合、文案列表等基本模块。",
+      "child_modules": ["article_create", "article_combine", "article_list"],
+      "capi_list": [],
+      "free_child_modules": ["article_list"],
+      "funs": [],
+      "free_funs": ["publish_5"]
+    },
+    "menu": {
+      "name": "自定义菜单管理",
+      "type": "content",
+      "desc": "自定义菜单管理，基于微信公众平台第三方开发形式，提供用户微信公众平台自定义菜单的创建、修改、查询、删除等功能",
+      "child_modules": ["menu_create", "menu_modify", "menu_search", "menu_delete"],
+      "capi_list": [],
+      "free_child_modules": [],
+      "funs": [],
+      "free_funs": []
+    },
+    "message": {
+      "name": "消息管理",
+      "type": "content",
+      "desc": "消息管理，基于微信公众平台第三方开发形式，为用户提供独立平台进行微信消息管理，同时提供便捷化的邮件推送服务提升用户体验。",
+      "child_modules": ["message_receive", "message_reply", "message_push", "message_mass", "message_template"],
+      "capi_list": [],
+      "free_child_modules": [],
+      "funs": [],
+      "free_funs": []
+    },
+    "weather": {
+      "name": "天气服务",
+      "type": "service",
+      "desc": "天气服务，利用开放API，为微信公众平台使用者提供便捷的天气预报服务，提升用户体验和平台黏性。",
+      "capi_list": [],
+      "funs": [],
+      "free_funs": ["view"]
+    },
+    "news": {
+      "name": "新闻服务",
+      "type": "service",
+      "desc": "新闻服务，利用开放API，为微信公众平台使用者提供便捷的热点新闻服务，提升用户体验和平台黏性。",
+      "capi_list": [],
+      "funs": [],
+      "free_funs": []
+    },
+    "wdata": {
+      "name": "微信公众平台数据",
+      "type": "data",
+      "desc": "微信公众平台数据，提供原生微信公众平台数据统计信息，包括基本的用户分析、图文分析、消息分析、接口分析等",
+      "child_modules": ["user_analysis", "graphic_analysis", "message_analysis", "capi_analysis"],
+      "free_child_modules": ["child_modules"],
+      "capi_list": [],
+      "funs": ["user_n", "export"],
+      "free_funs": ["user_10"]
+    },
+    "pdata": {
+      "name": "WCPcms平台数据",
+      "type": "data",
+      "desc": "WCPcms平台数据,提供基于公众平台网页开发的模式，进行图文消息的数据追踪，社群分析，提供更精确的数据统计以及意见领袖分析等服务。",
+      "child_modules": ["followers_analysis", "article_analysis", "opinion_leader"],
+      "free_child_modules": ["article_analysis"],
+      "capi_list": [],
+      "funs": ["user_n", "export"],
+      "free_funs": ["user_10"]
+    }
+  },
+  /* 模块显示顺序 */
+  "module_sequence": [
+    "article", "menu", "message", "weather", "news", "wdata", "pdata"
+  ],
+  /* 功能配置 */
+  "fun": {
+    "view": {
+      "name": "展示基本数据"
+    },
+    "view_one": {
+      "name": "展示一条数据"
+    },
+    "publish_5": {
+      "name": "每天发布5篇文章"
+    },
+    "publish_10": {
+      "name": "每天发布10篇文章"
+    },
+    "publish_20": {
+      "name": "每天发布20篇文章"
+    },
+    "publish_50": {
+      "name": "每天发布50篇文章"
+    },
+    "user_10": {
+      "name": "提供10个用户的基本分析"
+    },
+    "user_50": {
+      "name": "提供50个用户的基本分析"
+    },
+    "user_100": {
+      "name": "提供100个用户的基本分析"
+    },
+    "user_more": {
+      "name": "提供所有用户的基本分析"
+    },
+    "tryout": {
+      "name": "试用"
+    },
+    "export": {
+      "name": "数据导出"
+    },
+    "more": {
+      "name": "更多"
+    },
+    "detail": {
+      "name": "详情"
+    }
+  }
+}
