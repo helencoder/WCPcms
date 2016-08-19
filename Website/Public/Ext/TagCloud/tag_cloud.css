@@ -1,0 +1,9 @@
+#tag-cloud {background: #e1ecfe; position:relative; width:320px; height:320px; margin: 10px auto 0; }
+#tag-cloud a {position:absolute; top:0px; left:0px; font-family:  Helvetica; color:#fff; font-weight:bold; text-decoration:none; padding: 3px 6px; }
+#tag-cloud a:hover {border: 1px solid #eee; background: lawngreen; }
+#tag-cloud .black {color: black;}
+#tag-cloud .blue {color:blue;}
+#tag-cloud .red {color:red;}
+#tag-cloud .yellow {color:yellow;}
+#tag-cloud .green {color: green;}
+#tag-cloud .gray {color: gray;}
