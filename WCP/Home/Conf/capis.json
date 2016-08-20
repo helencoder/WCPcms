@@ -2,5 +2,13 @@
  * 微信公众平台数据接口
  */
 {
-
+  "get_access_token": {
+    "method": "get",
+    "url": "https://api.weixin.qq.com/cgi-bin/token",
+    "args": {
+      "grant_type": "client_credential",
+      "appid": "appid",
+      "secret": "appsecret"
+    }
+  }
 }
