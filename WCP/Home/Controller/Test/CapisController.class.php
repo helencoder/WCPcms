@@ -11,8 +11,8 @@ use Home\Controller\CommonController;
 class CapisController extends CommonController
 {
     public function getCapisRes(){
-        $appid = 'wxa4b61eaf7ba3d596';
-        $appsecret = '929ef373218ccbca5c6bf73f4becac73';
+        $appid = '';
+        $appsecret = '';
         $resuqestName = 'get_access_token';
         $args = array(
             'grant_type'    => 'client_credential',
