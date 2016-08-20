@@ -166,10 +166,10 @@ function getCurrentUrl()
 
 /**
  * 功能：接口请求函数
- * 参数：url，[data](通过是否传入data判断其为get请求还是post请求)
+ * 参数：url，[data](通过是否传入data判断其为get请求还是post请求) (header参数)
  * 返回：json数据
  */
-function request($url, $data = null)
+function request($url, $data = null, array $header = null)
 {
     //初始化cURL方法
     $ch = curl_init();
@@ -186,6 +186,10 @@ function request($url, $data = null)
         CURLOPT_POSTFIELDS     => $data*/
     );
     curl_setopt_array($ch, $opts);
+    //header
+    if (!empty($header)) {
+        curl_setopt($ch, CURLOPT_HTTPHEADER  , $header);
+    }
     //post请求参数
     if (!empty($data)) {
         curl_setopt($ch, CURLOPT_POST, true);
@@ -290,6 +294,18 @@ function aj_data_response($requestName, $args) {
     if (isset($args)) {
         foreach ($requireArgs as $key=>$value) {
             if (isset($args[$key])) {
+                if (is_array($requireArgs[$key])) {
+                    if (in_array($args[$key], $requireArgs[$key])) {
+                        continue;
+                    } else {
+                        $msg = array(
+                            'code'  => 100003,
+                            'data'  => [],
+                            'msg'   => '参数错误'
+                        );
+                        return $msg;
+                    }
+                }
                 continue;
             } else {
                 $msg = array(
@@ -436,4 +452,15 @@ function errorMsg($errcode)
         case 50001 : return '用户未授权该api';
         default    : return '未知错误';
     }
+}
+
+/**
+ * JSON文件转数组(去除其中注释)
+ * @return array
+ */
+function getJsonFile($filename, $path)
+{
+    $json_file = dirname($_SERVER['DOCUMENT_ROOT']) . $path . $filename;
+    $json_data = json_decode(preg_replace("/\/\*[\s\S]+?\*\//", "", file_get_contents($json_file)), true);
+    return $json_data;
 }
