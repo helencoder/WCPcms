@@ -56,7 +56,7 @@ class WeatherController extends CommonController
         $tmp_min = array();
         foreach ($dailyForecastData as $key=>$value) {
             $dailyData = array(
-                'date'          => $value->date,
+                'tmp_day'          => $value->date,
                 'tmp_max'       => $value->tmp->max,
                 'tmp_min'       => $value->tmp->min,
                 'wind'          => $value->wind->dir . $value->wind->sc . '级',
@@ -85,10 +85,9 @@ class WeatherController extends CommonController
         );
 
         $this->assign('date', $date);
-        $this->assign('tmp_max', $tmp_max);
-        $this->assign('tmp_min', $tmp_min);
-        dump($date);
+        $this->assign('city', $weatherMsg['basic']['city']);
         $this->assign('weatherMsg', $weatherMsg);
+        $this->assign('forecast', $weatherMsg['forecast']);
         $this->display();
     }
 }

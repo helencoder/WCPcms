@@ -4,10 +4,15 @@
     <meta charset="UTF-8">
     <title>天气预报信息</title>
     <link href="__CSS__/Service/weather.css" rel="stylesheet">
+    <link href="__Ext__/Bootstrap/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <h1>网站主界面</h1>
+    <!--<h1>网站主界面</h1>-->
     <div id="container"></div>
+
+    <foreach name="forecast" item="list">
+        <span>{$list.date}</span>;
+    </foreach>
 
 
     <script src="__Ext__/JQuery/jquery-2.2.0.min.js"></script>
@@ -17,18 +22,37 @@
     <script src="__Ext__/Highcharts/js/themes/skies.js"></script>
     <script language="JavaScript">
         $(document).ready(function() {
-            $('#container').highcharts();
+
             var title = {
-                text: '月平均气温'
+                text: '未来七日天气预报({$city})'
             };
             var subtitle = {
-                text: 'WCPcms友情提供'
+                text: ''
             };
+
+            var tooltip = {
+                valueSuffix: '\xB0C'
+            }
+
+            var legend = {
+                layout: 'vertical',
+                align: 'right',
+                verticalAlign: 'middle',
+                borderWidth: 0
+            };
+
+            var tmp_max = [];
+            var tmp_min = [];
+            var tmp_day = [];
+
+            <foreach name="forecast" item="list">
+                tmp_day.push('{$list.tmp_day}');        // 横轴需要字符串数据
+                tmp_max.push({$list.tmp_max});
+                tmp_min.push({$list.tmp_min});
+            </foreach>
+
             var xAxis = {
-                title: {
-                    text: '月份'
-                },
-                categories: {$date}
+                categories: tmp_day
             };
             var yAxis = {
                 title: {
@@ -41,25 +65,14 @@
                 }]
             };
 
-            var tooltip = {
-                valueSuffix: '\xB0C'
-            };
-
-            var legend = {
-                layout: 'vertical',
-                align: 'right',
-                verticalAlign: 'middle',
-                borderWidth: 0
-            };
-
             var series =  [
                 {
-                    name: '最高温度',
-                    data: {$tmp_max}
+                    name: '最高气温',
+                    data: tmp_max
                 },
                 {
-                    name: '最低温度',
-                    data: {$tmp_max}
+                    name: '最低气温',
+                    data: tmp_min
                 }
             ];
 
@@ -76,44 +89,8 @@
             $('#container').highcharts(json);
 
         });
-        var highcharts_options = {
-            chart: {
-                type: 'column',
-                style : {
-                    //fontFamily:"",
-                    fontSize:'16px',
-                    fontWeight:'bold',
-                    color:'#006cee'
-                }
-            },
-            title: {
-                text: 'My first Highcharts chart'
-            },
-            subtitle: {
-                text: '我是副标题'
-            },
-            xAxis: {
-                title:{
-                    text:'x轴标题'
-                },
-                categories: ['my', 'first', 'chart']
-            },
-            yAxis: {
-                title: {
-                    text: 'y轴标题'
-                }
-            },
-            series: [{
-                name: '',
-                data: [1, 0, 4]
-            }, {
-                name: 'John',
-                data: [5, 7, 3]
-            }]
-        };
+
     </script>
-
-
 
 </body>
 </html>
