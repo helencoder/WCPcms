@@ -7,54 +7,56 @@
     <link href="__Ext__/Bootstrap/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <!--<h1>网站主界面</h1>-->
-    <div id="container"></div>
+<!--<h1>网站主界面</h1>-->
+<div id="container"></div>
 
-    <foreach name="forecast" item="list">
-        <span>{$list.date}</span>;
-    </foreach>
+<foreach name="forecast" item="list">
+    <span>{$list.date}</span>;
+</foreach>
 
 
-    <script src="__Ext__/JQuery/jquery-2.2.0.min.js"></script>
-    <script src="__Ext__/Highcharts/js/highcharts.js"></script>
-    <script src="__Ext__/Highcharts/js/modules/exporting.js"></script>
-    <script src="__Ext__/Highcharts/js/modules/data.js"></script>
-    <script src="__Ext__/Highcharts/js/themes/skies.js"></script>
-    <script language="JavaScript">
-        $(document).ready(function() {
+<script src="__Ext__/JQuery/jquery-2.2.0.min.js"></script>
+<script src="__Ext__/Highcharts/js/highcharts.js"></script>
+<script src="__Ext__/Highcharts/js/modules/exporting.js"></script>
+<script src="__Ext__/Highcharts/js/modules/data.js"></script>
+<script src="__Ext__/Highcharts/js/themes/skies.js"></script>
 
-            var title = {
-                text: '未来七日天气预报({$city})'
-            };
-            var subtitle = {
-                text: ''
-            };
 
-            var tooltip = {
-                valueSuffix: '\xB0C'
-            }
+<script language="JavaScript">
+    $(document).ready(function () {
+        // 数据组织
+        var tmp_max = [];
+        var tmp_min = [];
+        var tmp_day = [];
 
-            var legend = {
+        <foreach name="forecast" item="list">
+            tmp_day.push('{$list.tmp_day}'); // 横轴需要字符串数据
+            tmp_max.push({$list.tmp_max});
+            tmp_min.push({$list.tmp_min});
+        </foreach>
+
+        // 配置型写法
+        var options = {
+            chart: {
+                renderTo: 'container'
+//                type: 'bar'
+            },
+            legend: {
                 layout: 'vertical',
                 align: 'right',
                 verticalAlign: 'middle',
                 borderWidth: 0
-            };
-
-            var tmp_max = [];
-            var tmp_min = [];
-            var tmp_day = [];
-
-            <foreach name="forecast" item="list">
-                tmp_day.push('{$list.tmp_day}');        // 横轴需要字符串数据
-                tmp_max.push({$list.tmp_max});
-                tmp_min.push({$list.tmp_min});
-            </foreach>
-
-            var xAxis = {
+            },
+            tooltip: {
+                valueSuffix: '\xB0C'
+            },
+            title: {
+                text: '未来七日天气预报({$city})'
+            },
+            xAxis: {
                 categories: tmp_day
-            };
-            var yAxis = {
+            },
+            yAxis: {
                 title: {
                     text: 'Temperature (\xB0C)'
                 },
@@ -63,34 +65,24 @@
                     width: 1,
                     color: '#808080'
                 }]
-            };
+            },
+            series: [
 
-            var series =  [
-                {
-                    name: '最高气温',
-                    data: tmp_max
-                },
-                {
-                    name: '最低气温',
-                    data: tmp_min
-                }
-            ];
-
-            var json = {};
-
-            json.title = title;
-            json.subtitle = subtitle;
-            json.xAxis = xAxis;
-            json.yAxis = yAxis;
-            json.tooltip = tooltip;
-            json.legend = legend;
-            json.series = series;
-
-            $('#container').highcharts(json);
-
+            ]
+        };
+        // 添加坐标轴
+        options.series.push({
+            name: '最高气温',
+            data: tmp_max
+        }, {
+            name: '最低气温',
+            data: tmp_min
         });
 
-    </script>
+        // 实例化表对象
+        var chart = new Highcharts.Chart(options);
+    });
+</script>
 
 </body>
 </html>
