@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>历史上的今天</title>
+    <link href="__CSS__/Service/news.css" rel="stylesheet">
+    <link href="__Ext__/Bootstrap/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <div class="container" id="daily">
+        <div class="jscroll-inner">
+            <div class="daily">
+                <h3 class="date">
+                    <i class="fa fa-calendar"></i>
+                    <span>历史上的今天</span>
+                    <small>{$date}</small>
+                </h3>
+
+                <foreach name="todyList" item="list">
+                    <div class="post">
+                        <div class="btn-group-vertical upvote">
+                            <a class="btn btn-default like-button" ><i class="fa fa-thumbs-o-up"></i> <span>36</span></a>
+                            <a class="btn btn-default btn-xs favorite-button" ><i class="fa fa-bookmark-o"></i> <span>131</span></a>
+                        </div>
+                        <div class="content" data-url="{$list.url}">
+                            <h3 class="title">
+                                <a target="_blank" rel="external" href="#">{$list.title}</a>
+                            </h3>
+                            <div class="meta">
+                                {$list.description}&nbsp;
+                                <span><i class="fa fa-comment-o"></i> {$list.year}-{$list.month}-{$list.day}</span>
+                            </div>
+                        </div>
+                        <div class="user-info">
+                            <div class="user-avatar">
+                                <a href="#">
+                                    <img width="32" src="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="subject-name">
+                            <a href="#"></a>
+                        </div>
+                    </div>
+                </foreach>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
