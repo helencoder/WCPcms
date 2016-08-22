@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>天气预报信息</title>
+    <link href="__CSS__/Service/weather.css" rel="stylesheet">
+</head>
+<body>
+    <h1>网站主界面</h1>
+    <div id="container"></div>
+
+
+    <script src="__Ext__/JQuery/jquery-2.2.0.min.js"></script>
+    <script src="__Ext__/Highcharts/js/highcharts.js"></script>
+    <script src="__Ext__/Highcharts/js/modules/exporting.js"></script>
+    <script src="__Ext__/Highcharts/js/modules/data.js"></script>
+    <script src="__Ext__/Highcharts/js/themes/skies.js"></script>
+    <script language="JavaScript">
+        $(document).ready(function() {
+            $('#container').highcharts();
+            var title = {
+                text: '月平均气温'
+            };
+            var subtitle = {
+                text: 'WCPcms友情提供'
+            };
+            var xAxis = {
+                title: {
+                    text: '月份'
+                },
+                categories: {$date}
+            };
+            var yAxis = {
+                title: {
+                    text: 'Temperature (\xB0C)'
+                },
+                plotLines: [{
+                    value: 0,
+                    width: 1,
+                    color: '#808080'
+                }]
+            };
+
+            var tooltip = {
+                valueSuffix: '\xB0C'
+            };
+
+            var legend = {
+                layout: 'vertical',
+                align: 'right',
+                verticalAlign: 'middle',
+                borderWidth: 0
+            };
+
+            var series =  [
+                {
+                    name: '最高温度',
+                    data: {$tmp_max}
+                },
+                {
+                    name: '最低温度',
+                    data: {$tmp_max}
+                }
+            ];
+
+            var json = {};
+
+            json.title = title;
+            json.subtitle = subtitle;
+            json.xAxis = xAxis;
+            json.yAxis = yAxis;
+            json.tooltip = tooltip;
+            json.legend = legend;
+            json.series = series;
+
+            $('#container').highcharts(json);
+
+        });
+        var highcharts_options = {
+            chart: {
+                type: 'column',
+                style : {
+                    //fontFamily:"",
+                    fontSize:'16px',
+                    fontWeight:'bold',
+                    color:'#006cee'
+                }
+            },
+            title: {
+                text: 'My first Highcharts chart'
+            },
+            subtitle: {
+                text: '我是副标题'
+            },
+            xAxis: {
+                title:{
+                    text:'x轴标题'
+                },
+                categories: ['my', 'first', 'chart']
+            },
+            yAxis: {
+                title: {
+                    text: 'y轴标题'
+                }
+            },
+            series: [{
+                name: '',
+                data: [1, 0, 4]
+            }, {
+                name: 'John',
+                data: [5, 7, 3]
+            }]
+        };
+    </script>
+
+
+
+</body>
+</html>
